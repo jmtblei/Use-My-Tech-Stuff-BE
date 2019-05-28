@@ -3,6 +3,10 @@
 ## Server
 
 https://usemytechstuffapp.herokuapp.com
+project initially deployed on 'benson-lei' branch
+periodically updated through 'blei' branch with merge to 'master'
+
+currently live on: benson-lei
 
 ## Dependencies
 
@@ -65,6 +69,124 @@ Example the following body
     "token": "eYsdasyfsAYDhyeyseyewyeYASDYYySYyefhFHEUWWEYyweyfYUEYYFYWEYWEYFweFYEYWEFWYwYWEYFHWEYFweYFYWEDHFHfdhhfdhfhewOEIOWOEIuu",
     "id": 11
 }
+```
+
+# User Routes
+## Get Users /api/users (GET)
+#### 200 Success Responds with
+Example of list of users
+```
+[
+    {
+        "id": 1,
+        "username": "Johnsmith123",
+        "firstname": "John",
+        "lastname": "Smith",
+        "email": "johnsmith123@gmail.com",
+        "phone": "1111111",
+        "address": "111 avenue"
+    },
+    {
+        "id": 2,
+        "username": "Janesmith321",
+        "firstname": "Jane",
+        "lastname": "Smith",
+        "email": "janesmith321@gmail.com",
+        "phone": "22222222",
+        "address": "222 drive"
+    },
+    ...
+]
+```
+## Get Specific Users /api/users/:id (GET)
+#### 200 Success Responds with
+Example of object with body:
+```
+{
+    "id": 1,
+    "username": "Johnsmith123",
+    "firstname": "John",
+    "lastname": "Smith",
+    "email": "johnsmith123@gmail.com",
+    "phone": "1111111",
+    "address": "111 avenue"
+}
+```
+
+## Update Specific user (PUT)
+#### Must be a registered user or logged in to update user
+#### 202 Success Responds with
+Example of object with message and body:
+```
+{
+    "message": "The following updates have been made:",
+    "changes": {
+        "id": ,
+        "username": "Johnsmith123",
+        "firstname": "John",
+        "lastname": "Smith",
+        "email": "therealjohnsmith123@gmail.com",
+        "phone": "5555555",
+        "address": "555 avenue"
+    }
+}
+```
+
+## Delete Specific user (DELETE )
+#### Must be a registered user or logged in to delete user
+#### 202 Success Responds with
+```
+{
+    "message": "The following user was removed:",
+    "username": "Johnsmith123"
+}
+```
+
+## Get Specific Users' Items /api/users/:id/item (GET)
+#### 202 Success Responds with
+Example of array of objects
+```
+[
+    {
+        "id": 1,
+        "owner": 1,
+        "title": "For rent",
+        "type": "Camera",
+        "description": "local only",
+        "price": 20,
+        "availability": 1,
+        "brand": "Canon",
+        "model": "EOS 200",
+        "imgURL": "https://i1.adis.ws/i/canon/Canon_EOS_200D_FrontCamera.png?qlt=70&w=800",
+        "renter": null
+    },
+    {
+        "id": 2,
+        "owner": 1,
+        "title": "New camera",
+        "type": "Camera",
+        "description": "takes awesome photos",
+        "price": 50,
+        "availability": 1,
+        "brand": "Nikon",
+        "model": "D5300",
+        "imgURL": "http://cdn-4.nikon-cdn.com/e/Q5NM96RZZo-YRYNeYvAi9beHK4x3L-8lV__2R-oGYSKeMMUpn__DSbsOX4QQI1MBxLX9BO6gD8NqzjK0CXEJ_g==/Views/1519_D5300_front.png",
+        "renter": null
+    },
+    {
+        "id": 8,
+        "owner": 1,
+        "title": "Renting this out!",
+        "type": "Drone",
+        "description": "get some great views with this",
+        "price": 55,
+        "availability": 1,
+        "brand": "DJI",
+        "model": "Mavic",
+        "imgURL": "https://multimedia.bbycastatic.ca/multimedia/products/500x500/123/12318/12318800.jpg",
+        "renter": null
+    },
+]
 ```
 
 # Item Routes
