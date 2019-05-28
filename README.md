@@ -142,7 +142,7 @@ Example of object with message and body:
 }
 ```
 
-## Get Specific Users' Items /api/users/:id/item (GET)
+## Get Specific Users' Items /api/users/:id/items (GET)
 #### 202 Success Responds with
 Example of array of objects
 ```
