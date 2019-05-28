@@ -6,6 +6,7 @@ module.exports = {
   findBy,
   findById,
   get,
+  updateUser,
 };
 
 function find() {
@@ -33,4 +34,10 @@ function findById(id) {
 function get() {
   return db('users')
   .orderBy('id')
+}
+
+function updateUser(id, changes) {
+  return db('users')
+  .where({ id })
+  .update(changes);
 }
