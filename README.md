@@ -3,10 +3,10 @@
 ## Server
 
 https://usemytechstuffapp.herokuapp.com
-project initially deployed on 'benson-lei' branch
-periodically updated through 'blei' branch with merge to 'master'
+- project initially deployed on 'benson-lei' branch
+- periodically updated through 'blei' branch with merge to 'master'
 
-currently live on: benson-lei
+- currently live on: benson-lei
 
 ## Dependencies
 
