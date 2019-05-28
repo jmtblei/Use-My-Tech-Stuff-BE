@@ -13,7 +13,7 @@ server.use(express.json());
 server.use(cors());
 
 server.use('/api', auth);
-server.use('/aou/users', users);
+server.use('/api/users', users);
 server.use('/api/items', items);
 
 server.get('/', (req, res) => {

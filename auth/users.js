@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../data/dbConfig');
 const Users = require('../helpers/users/usersModel');
+const Items = require('../helpers/items/itemsModel');
 
 router.get('/', async (req, res) => {
     try {
@@ -54,6 +55,23 @@ router.delete('/:id', restricted, async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: "Unable to delete user" });
      }
+});
+
+router.get('/:id/items', async (req, res) => {
+    let { id } = req.params
+    try {
+        let user = await Users.findById(req.params.id);
+        let items = await Items.getItems()
+            .where({ owner: id })
+            .orderBy('id');
+        if (!user) {
+            res.status(404).json({ error: "User does not exist" });
+        } else {
+            res.status(202).json(items);
+        }
+    } catch (err) {
+        res.status(500).json({ error: "Unable to get users' items" })
+    }
 });
 
 module.exports = router;

@@ -29,11 +29,13 @@ async function add(user) {
 function findById(id) {
   return db('users')
     .where({ id })
+    .select('id', 'username', 'firstname', 'lastname', 'email', 'phone', 'address')
     .first();
 }
 
 function get() {
   return db('users')
+  .select('id', 'username', 'firstname', 'lastname', 'email', 'phone', 'address')
   .orderBy('id')
 }
 
