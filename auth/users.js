@@ -41,3 +41,19 @@ router.put('/:id', restricted, async (req, res) => {
         res.status(500).json({ error: "Unable to update user" });
     }
 });
+
+router.delete('/:id', restricted, async (req, res) => {
+    try {
+        let user = await Users.removeUser(req.params.id, req.body);
+        const username = req.body.username;
+        if (!user) {
+            res.status(404).json({ error: "User does not exist" });
+        } else {
+            res.status(202).json({ message: "The following user was removed:", username });
+        } 
+    } catch (err) {
+        res.status(500).json({ error: "Unable to delete user" });
+     }
+});
+
+module.exports = router;
